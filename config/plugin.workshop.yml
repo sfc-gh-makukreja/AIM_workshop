@@ -1,0 +1,81 @@
+# ============================================================================
+# AIM Workshop — task exclusion overlay
+# ----------------------------------------------------------------------------
+# Reference copy of the task toggles this workshop runs with.
+#
+# You normally do NOT hand-edit this into your project. Lab 05 has you apply it
+# through the agent, which is the supported mechanism:
+#
+#     Ask the agent:
+#       "Disable these tasks: migrateData, validateData, validateView,
+#        runTests, seedSourceDb, etlSeed, etlValidate, setupDataInfrastructure"
+#
+# The agent calls configure(tasks={...}), which persists the choice to
+#     my-migration/.scai/config/plugin.yml   (under tasks.*)
+# so it holds across sessions. This file exists so you can (a) see the intended
+# end state and (b) recover if a project drifts.
+#
+# WHY these are off: every one of them needs a live SQL Server to compare
+# against, or infrastructure that only data migration uses. They are real
+# product capabilities, not gaps — see "Phases we skip and why" in the README.
+#
+# Verified against the plugin on 2026-08-17: all eight below are accepted.
+# ============================================================================
+
+tasks:
+  # --- Data migration -------------------------------------------------------
+  # Move and verify table data. Needs source extraction plus the SPCS or local
+  # worker. No source DB => nothing to move.
+  migrateData:
+    enabled: false
+  validateData:
+    enabled: false
+
+  # Provisions the compute pool / worker that migrateData and validateData use.
+  # Off, so setup never asks about container services — which trial accounts
+  # may not have enabled anyway.
+  setupDataInfrastructure:
+    enabled: false
+
+  # --- Object validation ----------------------------------------------------
+  # Compares a deployed view's result set against the same view on the source.
+  validateView:
+    enabled: false
+
+  # --- Procedure / function equivalence testing -----------------------------
+  # seedSourceDb captures test inputs from the source DB; runTests executes the
+  # source-vs-Snowflake comparison. Both need the source.
+  seedSourceDb:
+    enabled: false
+  runTests:
+    enabled: false
+
+  # --- ETL validation -------------------------------------------------------
+  # NOTE: etlStabilization (SSIS -> dbt) stays ON — that is Lab 07 and the
+  # highlight of the workshop. Only the source-comparison half is off.
+  etlSeed:
+    enabled: false
+  etlValidate:
+    enabled: false
+
+# ============================================================================
+# Two source-dependent tasks CANNOT be disabled. Both were tried and rejected:
+#
+#   createTests      -> "is a router/terminal node and cannot be disabled"
+#                       Harmless. It only routes to a seeding strategy, and
+#                       both destinations (seedSourceDb, runTests) are off.
+#
+#   captureBaseline  -> "is locked and cannot be disabled"
+#                       This one can block a procedure or function after
+#                       deploy. Use the documented bypass when it does —
+#                       see labs/06-deploy-objects.md.
+#
+# Tasks that stay ON, for contrast:
+#   registerCode / registration  import and classify the T-SQL       (Lab 02)
+#   convertCode / convert        SnowConvert AI conversion           (Lab 03)
+#   runAssessment                waves, anti-patterns, SSIS DAGs     (Lab 04)
+#   deploy                       create objects in Snowflake         (Lab 06)
+#   etlStabilization             SSIS -> dbt                         (Lab 07)
+#   fixCode                      diagnose and fix a failing object   (Lab 06/07)
+#   extractRules / applyRules    the rule engine                     (Lab 08)
+# ============================================================================
