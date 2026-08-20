@@ -1,0 +1,114 @@
+{
+  "codeStatus": {
+    "assessment": {
+      "containsCommit": false,
+      "exclusion": [],
+      "status": "inProgress"
+    },
+    "conversion": {
+      "status": "pending",
+      "updatedAt": "2026-08-20T02:06:26Z"
+    },
+    "registration": {
+      "sourceId": "H4J4R3Y0MH",
+      "status": "completed",
+      "updatedAt": "2026-08-20T02:06:26Z"
+    }
+  },
+  "dependencies": {
+    "dependsOn": [],
+    "hasTransitiveMissingDependencies": false,
+    "requiredBy": [
+      "d6075b91-ab1d-471a-bcef-2f22d11e9dfb"
+    ]
+  },
+  "extensions": {},
+  "files": {
+    "source": {
+      "checksum": "d31ceded168bc89b66f944b212570e09",
+      "path": "source/tastybytesdb/tastybytes/table/orderdetail.sql"
+    }
+  },
+  "id": "50484e96-7876-439e-960f-cfd7c0bceff2",
+  "inScope": true,
+  "isMissing": false,
+  "kind": "databaseObject",
+  "planning": {
+    "topologicalRank": 0
+  },
+  "schemaVersion": 1,
+  "signature": {
+    "columns": [
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "OrderID",
+        "nullable": true,
+        "type": "INT"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "LineNumber",
+        "nullable": true,
+        "type": "INT"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "MenuItemID",
+        "nullable": true,
+        "type": "INT"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "Quantity",
+        "nullable": true,
+        "type": "INT"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "UnitPrice",
+        "nullable": true,
+        "type": "SMALLMONEY"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "Discount",
+        "nullable": true,
+        "type": "SMALLMONEY"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "LineTotal",
+        "nullable": true,
+        "type": "DECIMAL"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "SpecialRequests",
+        "nullable": true,
+        "type": "NVARCHAR"
+      }
+    ],
+    "parameters": {
+      "arguments": [],
+      "returns": []
+    }
+  },
+  "source": {
+    "canonicalName": "TastyBytesDB.TastyBytes.OrderDetail",
+    "database": "TastyBytesDB",
+    "format": "sql",
+    "name": "OrderDetail",
+    "objectType": "table",
+    "platform": "sqlServer",
+    "schema": "TastyBytes"
+  },
+  "updatedAt": "2026-08-20T02:06:26Z"
+}

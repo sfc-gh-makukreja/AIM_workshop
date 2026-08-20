@@ -1,0 +1,142 @@
+{
+  "codeStatus": {
+    "assessment": {
+      "containsCommit": false,
+      "exclusion": [],
+      "status": "inProgress"
+    },
+    "conversion": {
+      "status": "pending",
+      "updatedAt": "2026-08-20T02:06:26Z"
+    },
+    "registration": {
+      "sourceId": "H4J4R3Y0MH",
+      "status": "completed",
+      "updatedAt": "2026-08-20T02:06:26Z"
+    }
+  },
+  "dependencies": {
+    "dependsOn": [],
+    "hasTransitiveMissingDependencies": false,
+    "requiredBy": [
+      "ba9ae7dc-6eec-478c-90b7-1354801ef739"
+    ]
+  },
+  "extensions": {},
+  "files": {
+    "source": {
+      "checksum": "f1c624a51d8bee61d5931831e61a3369",
+      "path": "source/tastybytesdb/tastybytes/table/customer.sql"
+    }
+  },
+  "id": "23f332db-0c36-460f-98e6-5dbb54b7ed8b",
+  "inScope": true,
+  "isMissing": false,
+  "kind": "databaseObject",
+  "planning": {
+    "topologicalRank": 0
+  },
+  "schemaVersion": 1,
+  "signature": {
+    "columns": [
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "CustomerID",
+        "nullable": true,
+        "type": "INT"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "CustomerGUID",
+        "nullable": true,
+        "type": "UNIQUEIDENTIFIER"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "FirstName",
+        "nullable": true,
+        "type": "NVARCHAR"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "LastName",
+        "nullable": true,
+        "type": "NVARCHAR"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "Email",
+        "nullable": true,
+        "type": "VARCHAR"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "PhoneNumber",
+        "nullable": true,
+        "type": "VARCHAR"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "PreferredCityID",
+        "nullable": true,
+        "type": "INT"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "LoyaltyPoints",
+        "nullable": true,
+        "type": "INT"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "MemberSince",
+        "nullable": true,
+        "type": "DATE"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "IsActive",
+        "nullable": true,
+        "type": "BIT"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "CreatedAt",
+        "nullable": true,
+        "type": "DATETIME"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "ModifiedAt",
+        "nullable": true,
+        "type": "DATETIME"
+      }
+    ],
+    "parameters": {
+      "arguments": [],
+      "returns": []
+    }
+  },
+  "source": {
+    "canonicalName": "TastyBytesDB.TastyBytes.Customer",
+    "database": "TastyBytesDB",
+    "format": "sql",
+    "name": "Customer",
+    "objectType": "table",
+    "platform": "sqlServer",
+    "schema": "TastyBytes"
+  },
+  "updatedAt": "2026-08-20T02:06:26Z"
+}

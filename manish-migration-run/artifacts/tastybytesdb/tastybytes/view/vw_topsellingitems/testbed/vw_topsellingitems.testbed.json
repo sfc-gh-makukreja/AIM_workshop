@@ -1,0 +1,44 @@
+{
+  "object": "TastyBytesDB.TastyBytes.vw_TopSellingItems",
+  "object_type": "VIEW",
+  "branches": [],
+  "predicates": [
+    {
+      "table": "TastyBytesDB.TastyBytes.OrderHeader",
+      "column": "OrderStatus",
+      "operator": "=",
+      "values": [
+        "Completed"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "left_table": "TastyBytesDB.TastyBytes.MenuItem",
+      "left_columns": [
+        "MenuItemID"
+      ],
+      "right_table": "TastyBytesDB.TastyBytes.OrderDetail",
+      "right_columns": [
+        "MenuItemID"
+      ],
+      "join_type": "inner",
+      "is_anti": false
+    },
+    {
+      "left_table": "TastyBytesDB.TastyBytes.OrderDetail",
+      "left_columns": [
+        "OrderID"
+      ],
+      "right_table": "TastyBytesDB.TastyBytes.OrderHeader",
+      "right_columns": [
+        "OrderID"
+      ],
+      "join_type": "inner",
+      "is_anti": false
+    }
+  ],
+  "assignments": [],
+  "semi_anti": [],
+  "schema_version": 1
+}

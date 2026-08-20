@@ -1,0 +1,142 @@
+{
+  "codeStatus": {
+    "assessment": {
+      "containsCommit": false,
+      "exclusion": [],
+      "status": "inProgress"
+    },
+    "conversion": {
+      "status": "pending",
+      "updatedAt": "2026-08-20T02:06:26Z"
+    },
+    "registration": {
+      "sourceId": "H4J4R3Y0MH",
+      "status": "completed",
+      "updatedAt": "2026-08-20T02:06:26Z"
+    }
+  },
+  "dependencies": {
+    "dependsOn": [],
+    "hasTransitiveMissingDependencies": false,
+    "requiredBy": [
+      "d6075b91-ab1d-471a-bcef-2f22d11e9dfb"
+    ]
+  },
+  "extensions": {},
+  "files": {
+    "source": {
+      "checksum": "e1b8991c693aca4198955ddebbbfec0e",
+      "path": "source/tastybytesdb/tastybytes/table/orderheader.sql"
+    }
+  },
+  "id": "2174ce4b-d05d-445a-ba18-f45c8386aca4",
+  "inScope": true,
+  "isMissing": false,
+  "kind": "databaseObject",
+  "planning": {
+    "topologicalRank": 0
+  },
+  "schemaVersion": 1,
+  "signature": {
+    "columns": [
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "OrderID",
+        "nullable": true,
+        "type": "INT"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "CustomerID",
+        "nullable": true,
+        "type": "INT"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "TruckID",
+        "nullable": true,
+        "type": "INT"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "OrderDate",
+        "nullable": true,
+        "type": "DATETIME"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "CompletedAt",
+        "nullable": true,
+        "type": "DATETIME"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "OrderStatus",
+        "nullable": true,
+        "type": "VARCHAR"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "TotalAmount",
+        "nullable": true,
+        "type": "MONEY"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "TipAmount",
+        "nullable": true,
+        "type": "MONEY"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "PaymentMethod",
+        "nullable": true,
+        "type": "VARCHAR"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "OrderNotes",
+        "nullable": true,
+        "type": "NVARCHAR"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "CreatedAt",
+        "nullable": true,
+        "type": "DATETIME"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "ModifiedAt",
+        "nullable": true,
+        "type": "DATETIME"
+      }
+    ],
+    "parameters": {
+      "arguments": [],
+      "returns": []
+    }
+  },
+  "source": {
+    "canonicalName": "TastyBytesDB.TastyBytes.OrderHeader",
+    "database": "TastyBytesDB",
+    "format": "sql",
+    "name": "OrderHeader",
+    "objectType": "table",
+    "platform": "sqlServer",
+    "schema": "TastyBytes"
+  },
+  "updatedAt": "2026-08-20T02:06:26Z"
+}

@@ -1,0 +1,53 @@
+{
+  "object": "_etl/daily_sales_agg.dtsx",
+  "object_type": "PACKAGE",
+  "branches": [
+    {
+      "branch_id": 0,
+      "construct_kind": "CONDITIONAL_SPLIT",
+      "line": 0,
+      "predicate_text": "OrderStatus == \"Completed\"",
+      "columns": [
+        {
+          "column": "OrderStatus",
+          "table": "[TastyBytes].[OrderHeader]",
+          "type": "VARCHAR",
+          "is_integer": false,
+          "is_number": false,
+          "is_string": true,
+          "is_date": false,
+          "is_boolean": false,
+          "is_binary": false
+        }
+      ],
+      "predicate": {
+        "kind": "atom",
+        "columns": [
+          "[TastyBytes].[OrderHeader].OrderStatus"
+        ],
+        "operator": "=",
+        "values": [
+          "Completed"
+        ]
+      }
+    }
+  ],
+  "predicates": [],
+  "edges": [
+    {
+      "left_table": "Sort",
+      "left_columns": [
+        "OrderID"
+      ],
+      "right_table": "Sort 1",
+      "right_columns": [
+        "OrderID"
+      ],
+      "join_type": "inner",
+      "is_anti": false
+    }
+  ],
+  "assignments": [],
+  "semi_anti": [],
+  "schema_version": 1
+}

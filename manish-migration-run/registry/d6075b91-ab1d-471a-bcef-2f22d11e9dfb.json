@@ -1,0 +1,113 @@
+{
+  "codeStatus": {
+    "assessment": {
+      "containsCommit": false,
+      "exclusion": [],
+      "status": "inProgress"
+    },
+    "conversion": {
+      "status": "pending",
+      "updatedAt": "2026-08-20T02:06:26Z"
+    },
+    "registration": {
+      "sourceId": "H4J4R3Y0MH",
+      "status": "completed",
+      "updatedAt": "2026-08-20T02:06:26Z"
+    }
+  },
+  "dependencies": {
+    "dependsOn": [
+      {
+        "id": "8e4d735c-091b-414e-9b6d-d8d93304cbf6",
+        "isMissing": false,
+        "relationTypes": [
+          "SELECT - JOIN"
+        ]
+      },
+      {
+        "id": "2174ce4b-d05d-445a-ba18-f45c8386aca4",
+        "isMissing": false,
+        "relationTypes": [
+          "SELECT - JOIN"
+        ]
+      },
+      {
+        "id": "50484e96-7876-439e-960f-cfd7c0bceff2",
+        "isMissing": false,
+        "relationTypes": [
+          "SELECT - JOIN"
+        ]
+      }
+    ],
+    "hasTransitiveMissingDependencies": false,
+    "requiredBy": []
+  },
+  "extensions": {},
+  "files": {
+    "source": {
+      "checksum": "4bfe9adbd16b632e27d9d8168462bbe9",
+      "path": "source/tastybytesdb/tastybytes/view/vw_topsellingitems.sql"
+    }
+  },
+  "id": "d6075b91-ab1d-471a-bcef-2f22d11e9dfb",
+  "inScope": true,
+  "isMissing": false,
+  "kind": "databaseObject",
+  "planning": {
+    "topologicalRank": 1
+  },
+  "schemaVersion": 1,
+  "signature": {
+    "columns": [
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "MenuItemID",
+        "nullable": true,
+        "type": "INT"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "ItemName",
+        "nullable": true,
+        "type": "NVARCHAR"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "TotalQuantitySold",
+        "nullable": true,
+        "type": "INT"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "TotalRevenue",
+        "nullable": true,
+        "type": "SMALLMONEY"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "RankingBasis",
+        "nullable": true,
+        "type": "VARCHAR"
+      }
+    ],
+    "parameters": {
+      "arguments": [],
+      "returns": []
+    }
+  },
+  "source": {
+    "canonicalName": "TastyBytesDB.TastyBytes.vw_TopSellingItems",
+    "database": "TastyBytesDB",
+    "format": "sql",
+    "name": "vw_TopSellingItems",
+    "objectType": "view",
+    "platform": "sqlServer",
+    "schema": "TastyBytes"
+  },
+  "updatedAt": "2026-08-20T02:06:26Z"
+}

@@ -1,0 +1,79 @@
+[20/08/2026 2:06:11 PM] Info: ========================================
+[20/08/2026 2:06:11 PM] Info: Starting Arrange-Only Mode
+[20/08/2026 2:06:11 PM] Info: ========================================
+[20/08/2026 2:06:11 PM] Info: Input Path: /Users/makukreja/projects/AIM_workshop/manish-migration-run/artifacts/source_raw/20260820.020609
+[20/08/2026 2:06:11 PM] Info: Output Path: /Users/makukreja/projects/AIM_workshop/manish-migration-run/artifacts/source_raw/20260820.020609_Processed
+[20/08/2026 2:06:11 PM] Info: Source Language: Transact
+[20/08/2026 2:06:11 PM] Info: ========================================
+[20/08/2026 2:06:14 PM] Info: Preprocessing Code: STARTED
+[20/08/2026 2:06:14 PM] Info: Executing 'SQL Split TLO Task'
+[20/08/2026 2:06:14 PM] Info: Preprocessing file tastybytesdb.sql
+[20/08/2026 2:06:14 PM] Info: Preprocessing file tastybytes.sql
+[20/08/2026 2:06:14 PM] Info: Preprocessing file etl_results.sql
+[20/08/2026 2:06:14 PM] Info: Preprocessing file dbo.sql
+[20/08/2026 2:06:14 PM] Info: Preprocessing file fn_formatcustomername.sql
+[20/08/2026 2:06:14 PM] Info: Preprocessing file sp_updateinventory.sql
+[20/08/2026 2:06:14 PM] Info: Preprocessing file customer.sql
+[20/08/2026 2:06:14 PM] Info: Preprocessing file foodtruck.sql
+[20/08/2026 2:06:14 PM] Info: Splitting TastyBytesDB database: STARTED
+[20/08/2026 2:06:14 PM] Info: Splitting dbo schema: STARTED
+[20/08/2026 2:06:14 PM] Info: Splitting TastyBytes schema: STARTED
+[20/08/2026 2:06:14 PM] Info: Splitting etl_results schema: STARTED
+[20/08/2026 2:06:14 PM] Info: Preprocessing file menu.sql
+[20/08/2026 2:06:14 PM] Info: Preprocessing file employeeshift.sql
+[20/08/2026 2:06:14 PM] Info: Preprocessing file orderdetail.sql
+[20/08/2026 2:06:14 PM] Info: Preprocessing file menuitem.sql
+[20/08/2026 2:06:14 PM] Info: Splitting OrderDetail table: STARTED
+[20/08/2026 2:06:14 PM] Info: Splitting Customer table: STARTED
+[20/08/2026 2:06:14 PM] Info: Preprocessing file inventory.sql
+[20/08/2026 2:06:14 PM] Info: Splitting MenuItem table: STARTED
+[20/08/2026 2:06:14 PM] Info: Preprocessing file country.sql
+[20/08/2026 2:06:14 PM] Info: Splitting Menu table: STARTED
+[20/08/2026 2:06:14 PM] Info: Splitting EmployeeShift table: STARTED
+[20/08/2026 2:06:14 PM] Info: Preprocessing file orderheader.sql
+[20/08/2026 2:06:14 PM] Info: Preprocessing file city.sql
+[20/08/2026 2:06:14 PM] Info: Splitting FoodTruck table: STARTED
+[20/08/2026 2:06:14 PM] Info: Preprocessing file vw_topsellingitems.sql
+[20/08/2026 2:06:14 PM] Info: Splitting Inventory table: STARTED
+[20/08/2026 2:06:14 PM] Info: Splitting City table: STARTED
+[20/08/2026 2:06:14 PM] Info: Preprocessing file etl_logs.sql
+[20/08/2026 2:06:14 PM] Info: Splitting Country table: STARTED
+[20/08/2026 2:06:14 PM] Info: Splitting OrderHeader table: STARTED
+[20/08/2026 2:06:14 PM] Info: Splitting etl_logs table: STARTED
+[20/08/2026 2:06:14 PM] Info: Splitting fn_FormatCustomerName function: STARTED
+[20/08/2026 2:06:14 PM] Info: Splitting sp_UpdateInventory procedure: STARTED
+[20/08/2026 2:06:14 PM] Info: Splitting vw_TopSellingItems view: STARTED
+[20/08/2026 2:06:14 PM] Info: Splitting City table: DONE
+[20/08/2026 2:06:14 PM] Info: Splitting Menu table: DONE
+[20/08/2026 2:06:14 PM] Info: Splitting MenuItem table: DONE
+[20/08/2026 2:06:14 PM] Info: Splitting OrderDetail table: DONE
+[20/08/2026 2:06:14 PM] Info: Splitting OrderHeader table: DONE
+[20/08/2026 2:06:14 PM] Info: Splitting Customer table: DONE
+[20/08/2026 2:06:14 PM] Info: Splitting Country table: DONE
+[20/08/2026 2:06:14 PM] Info: Splitting EmployeeShift table: DONE
+[20/08/2026 2:06:14 PM] Info: Splitting vw_TopSellingItems view: DONE
+[20/08/2026 2:06:14 PM] Info: Splitting FoodTruck table: DONE
+[20/08/2026 2:06:14 PM] Info: Splitting Inventory table: DONE
+[20/08/2026 2:06:14 PM] Info: Splitting etl_results schema: DONE
+[20/08/2026 2:06:14 PM] Info: Splitting dbo schema: DONE
+[20/08/2026 2:06:14 PM] Info: Splitting sp_UpdateInventory procedure: DONE
+[20/08/2026 2:06:14 PM] Info: Splitting fn_FormatCustomerName function: DONE
+[20/08/2026 2:06:14 PM] Info: Splitting etl_logs table: DONE
+[20/08/2026 2:06:14 PM] Info: Splitting TastyBytes schema: DONE
+[20/08/2026 2:06:14 PM] Info: Splitting TastyBytesDB database: DONE
+[20/08/2026 2:06:14 PM] Info: ========================================
+[20/08/2026 2:06:14 PM] Info: Arrange Summary
+[20/08/2026 2:06:14 PM] Info: ========================================
+[20/08/2026 2:06:14 PM] Info: Identified 18 object(s) across 6 type(s):
+[20/08/2026 2:06:14 PM] Info:   - table: 11
+[20/08/2026 2:06:14 PM] Info:   - schema: 3
+[20/08/2026 2:06:14 PM] Info:   - database: 1
+[20/08/2026 2:06:14 PM] Info:   - function: 1
+[20/08/2026 2:06:14 PM] Info:   - procedure: 1
+[20/08/2026 2:06:14 PM] Info:   - view: 1
+[20/08/2026 2:06:14 PM] Info: ========================================
+[20/08/2026 2:06:14 PM] Info: Preprocessing Code: COMPLETED
+[20/08/2026 2:06:14 PM] Info: ========================================
+[20/08/2026 2:06:14 PM] Info: Arrange-Only Mode Completed Successfully
+[20/08/2026 2:06:14 PM] Info: Arranged code available at: /Users/makukreja/projects/AIM_workshop/manish-migration-run/artifacts/source_raw/20260820.020609_Processed
+[20/08/2026 2:06:14 PM] Info: ========================================

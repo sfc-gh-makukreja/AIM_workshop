@@ -1,0 +1,50 @@
+{
+  "codeStatus": {
+    "assessment": {
+      "containsCommit": false,
+      "exclusion": [],
+      "status": "inProgress"
+    },
+    "conversion": {
+      "status": "pending",
+      "updatedAt": "2026-08-20T02:06:26Z"
+    },
+    "registration": {
+      "sourceId": "H4J4R3Y0MH",
+      "status": "completed",
+      "updatedAt": "2026-08-20T02:06:26Z"
+    }
+  },
+  "dependencies": {
+    "dependsOn": [],
+    "hasTransitiveMissingDependencies": false,
+    "requiredBy": []
+  },
+  "extensions": {},
+  "files": {
+    "source": {
+      "checksum": "ae8323d4717aa7048f48d826c6c34210",
+      "path": "source/tastybytesdb/dbo/dbo.sql"
+    }
+  },
+  "id": "59130ebe-b276-4b3a-b0f2-4c6599d69ee5",
+  "inScope": true,
+  "isMissing": false,
+  "kind": "databaseObject",
+  "planning": {
+    "topologicalRank": 0
+  },
+  "schemaVersion": 1,
+  "signature": {
+    "columns": []
+  },
+  "source": {
+    "canonicalName": "TastyBytesDB.dbo",
+    "database": "TastyBytesDB",
+    "format": "sql",
+    "name": "dbo",
+    "objectType": "schema",
+    "platform": "sqlServer"
+  },
+  "updatedAt": "2026-08-20T02:06:26Z"
+}

@@ -1,0 +1,6 @@
+code_source: local
+cortex_safe_tools_acknowledged: 'true'
+dashboard_port: 7880
+entry_mode: fresh
+project_dir_confirmed: 'true'
+committed_setup_tasks: registerCode

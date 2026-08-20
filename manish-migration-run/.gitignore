@@ -1,0 +1,17 @@
+# Local configuration (not shared with team)
+.scai/config/project.local.yml
+
+# Local Data Exchange Worker config
+.scai/config/dew_configuration.toml
+
+# Environment files
+.env
+.env.local
+
+# Temporary files
+*.tmp
+*.bak
+
+# OS files
+.DS_Store
+Thumbs.db

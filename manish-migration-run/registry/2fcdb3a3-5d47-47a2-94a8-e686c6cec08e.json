@@ -1,0 +1,50 @@
+{
+  "codeStatus": {
+    "assessment": {
+      "containsCommit": false,
+      "exclusion": [],
+      "status": "inProgress"
+    },
+    "conversion": {
+      "status": "pending",
+      "updatedAt": "2026-08-20T02:06:26Z"
+    },
+    "registration": {
+      "sourceId": "H4J4R3Y0MH",
+      "status": "completed",
+      "updatedAt": "2026-08-20T02:06:26Z"
+    }
+  },
+  "dependencies": {
+    "dependsOn": [],
+    "hasTransitiveMissingDependencies": false,
+    "requiredBy": []
+  },
+  "extensions": {},
+  "files": {
+    "source": {
+      "checksum": "4950bac0efd5f7019d9446cfdcaabc29",
+      "path": "source/tastybytesdb/tastybytes/tastybytes.sql"
+    }
+  },
+  "id": "2fcdb3a3-5d47-47a2-94a8-e686c6cec08e",
+  "inScope": true,
+  "isMissing": false,
+  "kind": "databaseObject",
+  "planning": {
+    "topologicalRank": 0
+  },
+  "schemaVersion": 1,
+  "signature": {
+    "columns": []
+  },
+  "source": {
+    "canonicalName": "TastyBytesDB.TastyBytes",
+    "database": "TastyBytesDB",
+    "format": "sql",
+    "name": "TastyBytes",
+    "objectType": "schema",
+    "platform": "sqlServer"
+  },
+  "updatedAt": "2026-08-20T02:06:26Z"
+}

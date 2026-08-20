@@ -1,0 +1,112 @@
+{
+  "codeStatus": {
+    "assessment": {
+      "containsCommit": false,
+      "exclusion": [],
+      "status": "inProgress"
+    },
+    "conversion": {
+      "status": "pending",
+      "updatedAt": "2026-08-20T02:06:26Z"
+    },
+    "registration": {
+      "sourceId": "H4J4R3Y0MH",
+      "status": "completed",
+      "updatedAt": "2026-08-20T02:06:26Z"
+    }
+  },
+  "dependencies": {
+    "dependsOn": [],
+    "hasTransitiveMissingDependencies": false,
+    "requiredBy": []
+  },
+  "extensions": {},
+  "files": {
+    "source": {
+      "checksum": "f8fae50e1d686b4ab07a6f0df7452d48",
+      "path": "source/tastybytesdb/tastybytes/table/city.sql"
+    }
+  },
+  "id": "139692bf-eac1-4bc6-b70d-60fdac5b030d",
+  "inScope": true,
+  "isMissing": false,
+  "kind": "databaseObject",
+  "planning": {
+    "topologicalRank": 0
+  },
+  "schemaVersion": 1,
+  "signature": {
+    "columns": [
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "CityID",
+        "nullable": true,
+        "type": "INT"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "CityName",
+        "nullable": true,
+        "type": "NVARCHAR"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "CountryID",
+        "nullable": true,
+        "type": "INT"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "StateProvince",
+        "nullable": true,
+        "type": "NVARCHAR"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "Latitude",
+        "nullable": true,
+        "type": "DECIMAL"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "Longitude",
+        "nullable": true,
+        "type": "DECIMAL"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "PopulationSize",
+        "nullable": true,
+        "type": "INT"
+      },
+      {
+        "isCaseSpecific": false,
+        "isPrimaryKey": false,
+        "name": "CreatedAt",
+        "nullable": true,
+        "type": "DATETIME"
+      }
+    ],
+    "parameters": {
+      "arguments": [],
+      "returns": []
+    }
+  },
+  "source": {
+    "canonicalName": "TastyBytesDB.TastyBytes.City",
+    "database": "TastyBytesDB",
+    "format": "sql",
+    "name": "City",
+    "objectType": "table",
+    "platform": "sqlServer",
+    "schema": "TastyBytes"
+  },
+  "updatedAt": "2026-08-20T02:06:26Z"
+}
