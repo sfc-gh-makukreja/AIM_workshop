@@ -1,5 +1,0 @@
-USE TastyBytesDB;
-
-GO
-
-CREATE SCHEMA dbo AUTHORIZATION dbo;
