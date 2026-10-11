@@ -18,3 +18,4 @@ target/
 
 # Attendee/lab run output (its own sub-repo)
 migration/
+.scai/
