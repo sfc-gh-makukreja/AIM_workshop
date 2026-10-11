@@ -1,0 +1,7 @@
+Timestamp,DatabaseName,Statement
+2024-09-15T10:00:00,TastyBytesDB,"EXEC TastyBytes.sp_UpdateInventory @TruckID = 1, @StockCount = 100.00, @Override = 1"
+2024-09-15T10:05:00,TastyBytesDB,"EXEC TastyBytes.sp_UpdateInventory @TruckID = 2, @StockCount = 25.50, @Override = 0"
+2024-09-15T10:10:00,TastyBytesDB,"EXEC TastyBytes.sp_UpdateInventory @TruckID = 3, @StockCount = 75.00, @Override = 1"
+2024-09-15T10:20:00,TastyBytesDB,"SELECT TastyBytes.fn_FormatCustomerName(1)"
+2024-09-15T10:25:00,TastyBytesDB,"SELECT TastyBytes.fn_FormatCustomerName(2)"
+2024-09-15T10:30:00,TastyBytesDB,"SELECT TastyBytes.fn_FormatCustomerName(3)"

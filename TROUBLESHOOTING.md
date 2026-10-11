@@ -1,5 +1,7 @@
 # Troubleshooting
 
+> **Note -** Carried over from the source-less variant of this workshop. Entries that mention lab numbers or local SQL files are historical; the Azure SQL gotchas are inline in each lab and will be consolidated here after the dry run.
+
 Known failure modes, in the order attendees hit them.
 
 ---
@@ -11,7 +13,7 @@ Known failure modes, in the order attendees hit them.
 You answered "extract from a database" at the **code source** question instead of
 "local files". Tell the agent:
 
-> I don't have a source database, I'm using local SQL files at ../source_db
+> I don't have a source database, I'm using local SQL files at ../reference/extracted_source
 
 It re-routes. No need to restart.
 
@@ -29,7 +31,7 @@ rm -rf ~/projects/AIM_workshop/my-migration
 ### The agent proposes a project directory outside the repo
 
 Harmless, but keep it at `AIM_workshop/my-migration` so the lab paths
-(`../source_db`) work as written.
+(`../reference/extracted_source`) work as written.
 
 ---
 
@@ -51,7 +53,7 @@ per-object files. Fix:
 rm -rf my-migration
 ```
 
-Restart Lab 01 and pass `../source_db`.
+Restart Lab 01 and pass `../reference/extracted_source`.
 
 ### `ADD0007` — conflict, files already exist
 
@@ -132,7 +134,7 @@ it.
 
 ### The database object fails: "already exists"
 
-`snowflake/setup.sql` created `TASTYBYTESDB` in Lab 00.3. Tell the agent to treat
+`snowflake/init.sql` created `TASTYBYTESDB` in Lab 00.3. Tell the agent to treat
 it as deployed and continue.
 
 ### Objects show as "blocked"
@@ -198,7 +200,7 @@ in the database's `PUBLIC` schema. Do not drop it:
 CREATE SCHEMA IF NOT EXISTS TASTYBYTESDB.PUBLIC;
 ```
 
-The shipped `snowflake/setup.sql` leaves `PUBLIC` in place for this reason.
+The shipped `snowflake/init.sql` leaves `PUBLIC` in place for this reason.
 
 ### `Object 'TASTYBYTESDB.PUBLIC.ORDERDETAIL' does not exist`
 
@@ -288,7 +290,7 @@ a compact, a restart, and a new session.
 cd ~/projects/AIM_workshop && rm -rf my-migration
 ```
 
-Then re-run `snowflake/setup.sql` — its `CREATE OR REPLACE DATABASE` resets the
+Then re-run `snowflake/init.sql` — its `CREATE OR REPLACE DATABASE` resets the
 Snowflake side — and restart at Lab 01.
 
 ### Everything is broken and time is short

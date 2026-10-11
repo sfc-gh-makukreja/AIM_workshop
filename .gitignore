@@ -1,17 +1,20 @@
+
 # Attendee working directory — each attendee creates their own migration project here
-my-migration/
-
 # Facilitator dry-run project
-dry-run/
-
-# dbt
-target/
-dbt_packages/
-logs/
-.user.yml
-
 # OS / editor
-.DS_Store
-.vscode/
+# dbt
 *.swp
-.scai
+.DS_Store
+.scai.snowflake/
+.user.yml
+.vscode/
+dbt_packages/
+docs/site/.build/
+docs/site/site/
+dry-run/
+logs/
+my-migration/
+target/
+
+# Attendee/lab run output (its own sub-repo)
+migration/

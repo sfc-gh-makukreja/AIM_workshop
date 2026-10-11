@@ -1,123 +1,51 @@
-# Lab 03 — Convert to Snowflake SQL
+# Lab 03 - Convert
 
-**Time:** 20 min
-**Goal:** run SnowConvert AI over the registered code and learn to read EWIs.
+**Time:** 15 min
+**Goal:** convert Wave 1 T-SQL to Snowflake SQL and read the issues.
 
----
+## 3.0 Conversion settings
 
-## 3.1 Run the conversion
+After extraction the agent starts conversion by itself and asks four questions. Keep the
+defaults and press **Submit**.
 
-> continue
+| Question | Answer |
+|---|---|
+| Chains: consolidate dbt model chains? | **No** (keep separate models) |
+| Projects: one dbt project per SSIS package? | **No** (one per Data Flow) |
+| Tableau workbooks to repoint? | **No** |
+| Settings | **Go with defaults** |
 
-The agent runs the conversion across every registered object plus the SSIS
-package. Output lands in:
+![Conversion settings questions](images/convert-settings.png)
 
-```
-my-migration/artifacts/<db>/<schema>/<type>/<name>/deterministic/<timestamp>/<name>.sql
-```
+> **Tip -** The dbt questions come from the SSIS package added in Lab 02. They only affect how the ETL is converted (Lab 10).
 
-"deterministic" is the rule-based pass — the same input always yields the same
-output. That matters for auditability: a customer can diff two conversion runs
-and see exactly what changed.
+## 3.0b Conversion runs
 
-## 3.2 Read a clean conversion
+You do not type a convert prompt. After Submit the agent runs **Run code conversion**
+(Allow when asked). It converts everything, not only Wave 1.
 
-```bash
-cd my-migration
-find artifacts -path '*table/customer*' -name '*.sql' | xargs cat
-```
+![Conversion done](images/convert-done.png)
 
-Compare against the source:
+Expect: *19 SQL files (239 code units) and 1 ETL file converted into `snowflake/`*, with
+database bindings written to `.scai/bindings/database-bindings.yaml` for you to adjust if
+needed. The agent then asks to Allow `progress_setup` and starts the assessment.
 
-```bash
-cat ../source_db/tastybytesdb/tastybytes/table/customer.sql
-```
+## 3.1 What to look for
 
-Things to notice:
-
-| T-SQL | Snowflake | Note |
+| Source construct | What happens | Where |
 |---|---|---|
-| `nvarchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS` | `VARCHAR(100) COLLATE 'en-ci'` | Case-insensitivity preserved, flagged as a perf risk in Lab 04 |
-| `uniqueidentifier` | `VARCHAR(36)` | No native GUID type |
-| `IDENTITY(1,1)` | `IDENTITY(1,1)` / `AUTOINCREMENT` | Direct equivalent |
-| `datetime` | `TIMESTAMP_NTZ(3)` | Precision made explicit |
-| `getdate()` | `CURRENT_TIMESTAMP()` | |
+| `MONEY`, `NTEXT`, `UNIQUEIDENTIFIER` | Mapped to `NUMBER`, `VARCHAR`, `VARCHAR` | Customer, MenuItem |
+| Computed columns | Rewritten, often with an EWI | tables |
+| `ROWVERSION` | No Snowflake equivalent; EWI | tables |
+| `SQL_Latin1_General_CP1_CI_AS` collation | Rewritten as `COLLATE` | tables |
+| `TOP 1 PERCENT` | Needs manual attention | view |
 
-Every converted object also carries a `COMMENT` with the SnowConvert version and
-a migration id. That is your provenance trail.
+> **Tip -** Open `source/` next to `snowflake/` and compare one table and the view.
+> Reading one diff makes the EWI numbers meaningful.
 
-## 3.3 Read a conversion that needs help
-
-The view is the interesting one:
-
-```bash
-find artifacts -path '*vw_topsellingitems*' -name '*.sql' | xargs grep -n 'EWI'
-```
-
-You will see:
-
-```
-TOP 1 !!!RESOLVE EWI!!! /*** SSC-EWI-0040 - THE 'TOP PERCENT' CLAUSE IS NOT SUPPORTED IN SNOWFLAKE ***/!!!
-```
-
-**EWI** = Error, Warning, or Issue. `!!!RESOLVE EWI!!!` is a deliberate
-tombstone: it makes the file **fail to compile** rather than silently deploy
-something subtly wrong.
-
-This is a design decision worth understanding. `TOP 1 PERCENT` *could* be
-machine-rewritten as `QUALIFY ROW_NUMBER() OVER (...) <= CEIL(COUNT(*) * 0.01)`,
-but "1 percent of rows" is a business rule, and the deterministic pass will not
-guess at business rules. It stops and asks.
-
-Lab 06 is where the agent resolves this one.
-
-## 3.4 Look at the SSIS conversion
-
-```bash
-find artifacts/_etl -type f | sort
-```
-
-The `.dtsx` became a **dbt project**:
-
-```
-artifacts/_etl/daily_sales_agg/<timestamp>/
-  daily_sales_agg.sql            control flow, as an orchestration script
-  df_load_daily_sales/           the data flow, as a dbt project
-    dbt_project.yml
-    profiles.yml
-    sources.yml
-    models/staging/              one model per source extract
-    models/intermediate/         one model per SSIS transform
-    models/marts/                the destination
-    macros/                      SSIS variable handling
-```
-
-Open a couple of intermediate models:
-
-```bash
-find artifacts/_etl -name 'int_*.sql' | head -3 | xargs -n1 cat
-```
-
-Each SSIS data-flow component became one dbt model:
-`Merge Join` → `int_merge_join.sql`, `Aggregate` → `int_aggregate.sql`,
-`Conditional Split` → one model per output branch, `Data Conversion` →
-`int_data_conversion.sql`.
-
-This is the part partners tend to underestimate. The output is not a
-lift-and-shift of a proprietary binary format — it is an idiomatic, layered dbt
-project a data engineer can read, review in a PR, and maintain. Lab 07 goes
-deeper.
-
-## 3.5 Checkpoint
-
-Ask the agent:
-
-> what is the current state of the migration?
-
-Expect: all objects converted. Then:
-
-> show me every object that has an unresolved EWI
+> **Not yet observed -** Exact EWI codes for this run; the facilitator fills these in
+> after the dry run.
 
 ---
 
-**Next:** [04-assessment.md](04-assessment.md)
+**Next:** [04-assess.md](04-assess.md)

@@ -11,10 +11,11 @@
 USE ROLE ACCOUNTADMIN;
 
 DROP DATABASE IF EXISTS TASTYBYTESDB;
+ALTER USER IDENTIFIER(CURRENT_USER()) UNSET AUTHENTICATION POLICY;
+DROP DATABASE IF EXISTS POLICY_DB;
 DROP WAREHOUSE IF EXISTS XSMALL_WH;
 
-/* Only needed if you also ran the reference project's init.sql, which creates
-   a compute pool for data migration. This workshop never creates one. */
+-- Stop any worker service first (name varies; list with SHOW SERVICES IN ACCOUNT).
 DROP COMPUTE POOL IF EXISTS TASTYBYTES_MIG_POOL;
 
 -- ----------------------------------------------------------------------------

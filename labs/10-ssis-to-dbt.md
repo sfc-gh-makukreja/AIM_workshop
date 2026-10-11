@@ -1,6 +1,8 @@
-# Lab 07 — SSIS to dbt
+# Lab 10 - Wave 2: SSIS to dbt (documented, not run in the HOL)
 
-**Time:** 35 min
+> **Note -** This page is a self-paced walkthrough. It was written from a dry run of the source-less variant of this workshop, so row counts of zero below reflect that run; with Wave 2 data migrated you will see data instead. Re-verify commands against your own run.
+
+**Time:** self-paced
 **Goal:** get the converted SSIS package running on Snowflake as a native dbt
 project driven by a task graph.
 
@@ -8,7 +10,7 @@ This is the centrepiece of the workshop.
 
 ---
 
-## 07.1 What the conversion produced
+## 10.1 What the conversion produced
 
 ```bash
 cd my-migration
@@ -79,7 +81,7 @@ cat artifacts/_etl/daily_sales_agg/*/df_load_daily_sales/macros/*.sql
 `m_update_row_count_variable` and `m_update_control_variable` reproduce SSIS
 package variables.
 
-## 07.2 Deploy the ETL
+## 10.2 Deploy the ETL
 
 Your Snowflake connection **must have a default database and schema**, or the
 dbt half of the deploy fails with `Cannot perform DESCRIBE. This session does
@@ -115,7 +117,7 @@ You now have a **native Snowflake DBT PROJECT object** — versioned
 (`VERSION$1`), stored in Snowflake, executable with `EXECUTE DBT PROJECT`. No
 local dbt required.
 
-## 07.3 Stabilize: fix the source references
+## 10.3 Stabilize: fix the source references
 
 Try running it as-is:
 
@@ -131,7 +133,7 @@ Object 'TASTYBYTESDB.PUBLIC.ORDERDETAIL' does not exist or not authorized.
 
 This is the whole point of stabilization. The generated `sources.yml` shipped
 with `YOUR_DB` / `YOUR_SCHEMA` placeholders; the deploy resolved them from your
-connection to `TASTYBYTESDB.PUBLIC` — but the tables you deployed in Lab 06 live
+connection to `TASTYBYTESDB.PUBLIC` — but the tables you deployed in Lab 05 live
 in `TASTYBYTES`.
 
 **Fix the deploy staging copy, not the artifacts copy.** There are two:
@@ -157,7 +159,7 @@ Or ask the agent:
 Redeploy, and confirm a **new version** appeared (`VERSION$2`, `VERSION$3`, ...)
 in `SHOW DBT PROJECTS`. Versioning is per deploy — that is your rollback path.
 
-## 07.4 Run it
+## 10.4 Run it
 
 ```sql
 EXECUTE DBT PROJECT <project_name> ARGS='build --target dev';
@@ -190,17 +192,17 @@ Three things to point out:
 2. **Models land in `PUBLIC`**, because that is the schema in the generated
    `profiles.yml`. In a real engagement you would point this at a proper
    reporting schema.
-3. **Zero rows processed.** The source tables are empty (Lab 06). `PASS=3` proves
+3. **Zero rows processed.** The source tables are empty (Lab 05). `PASS=3` proves
    every model **compiles and executes against real Snowflake metadata** —
    column names, types, joins, aggregations all resolve. It does **not** prove
    row-level equivalence with the SSIS package; that is `etlValidate`, which
-   needs the source (Lab 5.4). Be precise about this distinction with customers.
+   needs the source (Lab 04.4). Be precise about this distinction with customers.
 
 If it fails, paste the error to the agent — that is `fixCode`, and iterating here
 is the realistic experience. `SELECT SYSTEM$GET_DBT_LOG('<query_id>')` gives you
 the full dbt log.
 
-## 07.5 Two more stabilization findings
+## 10.5 Two more stabilization findings
 
 Read the deployed task definitions:
 
@@ -217,13 +219,13 @@ Two things a careful engineer catches, and neither is caught by "it deployed":
   and mention it to the customer.
 - **`SSC-FDM-0007 - MISSING DEPENDENT OBJECT "etl_results.etl_logs"`.** Raised at
   conversion time, when `etl_logs` had not been deployed yet. It has been since
-  Lab 06, so the warning is now stale — but verify rather than assume.
+  Lab 05, so the warning is now stale — but verify rather than assume.
 
 Optionally resume the graph and watch it run (children before root):
 
 > resume the ETL task graph and run it
 
-## 07.6 Running dbt locally instead (optional)
+## 10.6 Running dbt locally instead (optional)
 
 If you have `dbt-core` and `dbt-snowflake` installed and want the local
 developer loop:
@@ -236,9 +238,9 @@ dbt docs generate && dbt docs serve
 ```
 
 `dbt docs` is worth the detour — compare the dbt DAG against the SSIS data-flow
-DAG from Lab 04.5. Same graph, now version-controlled, testable and reviewable.
+DAG from Lab 03.5. Same graph, now version-controlled, testable and reviewable.
 
-## 07.7 Why this matters commercially
+## 10.7 Why this matters commercially
 
 SSIS is usually the reason a SQL Server migration stalls. The tables are easy and
 everybody knows it; the hundreds of packages are the risk, and the fear is they
@@ -258,7 +260,7 @@ What you just demonstrated:
 That last point is the actual sale. The customer is not just moving a pipeline;
 they are exiting a skills dependency.
 
-## 07.8 Checkpoint
+## 10.8 Checkpoint
 
 ```sql
 SHOW TASKS IN DATABASE TASTYBYTESDB;
@@ -268,4 +270,4 @@ SELECT COUNT(*) FROM TASTYBYTESDB.PUBLIC.DAILYSALESAGG;   -- 0, expected
 
 ---
 
-**Next:** [08-rules-and-wrapup.md](08-rules-and-wrapup.md)
+**Next:** [11-wrapup.md](11-wrapup.md)

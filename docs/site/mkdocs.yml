@@ -1,0 +1,38 @@
+site_name: AIM Workshop - Azure SQL to Snowflake
+site_description: Hands-on lab - migrate an Azure SQL Database to Snowflake wave by wave with SnowConvert AI and Cortex Code
+repo_url: https://github.com/sfc-gh-makukreja/AIM_workshop
+docs_dir: .build
+site_dir: site
+theme:
+  name: material
+  logo: images/snowflake-symbol-white.png
+  favicon: images/snowflake-symbol.png
+  palette:
+    primary: light blue
+  features:
+    - navigation.footer
+    - content.code.copy
+    - toc.integrate
+markdown_extensions:
+  - admonition
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+  - pymdownx.details
+nav:
+  - "Overview": index.md
+  - "00 Prerequisites and orientation": 00-prerequisites.md
+  - "01 Account setup: PAT policy, PAT, init.sql": 01-account-setup.md
+  - "02 Connect to Azure SQL and extract objects": 02-connect-extract.md
+  - "03 Convert": 03-convert.md
+  - "04 Assess, estimate, overrides": 04-assess.md
+  - "05 Scope the migration and configure the target": 05-configure-target.md
+  - "06 Deploy, migrate, validate, fix loop (wave 1)": 06-migrate-data.md
+  - "07 Deploy, test, fix loop (wave 2)": 07-validate-test.md
+  - "08 Dashboard and git changes": 08-dashboard-git.md
+  - "09 Wave 2 (documented, self-paced)": 09-wave2.md
+  - "10 Wave 2: SSIS to dbt (documented, not run in the HOL)": 10-ssis-to-dbt.md
+  - "11 Wrap-up and teardown": 11-wrapup.md
+  - "Facilitator guide": facilitator.md
+  - "Troubleshooting": troubleshooting.md
